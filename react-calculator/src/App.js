@@ -59,9 +59,115 @@ const App = () => {
       setValue(value + ".");
       return;
     }
+
+    if (operations === "+") {
+      if (operator !== null) {
+        if (operator === "+") {
+          setMemory(memory + parseFloat(value));
+        } else if (operator === "-") {
+          setMemory(memory - parseFloat(value));
+        } else if (operator === "×") {
+          setMemory(memory * parseFloat(value));
+        } else if (operator === "÷") {
+          setMemory(memory / parseFloat(value));
+        }
+      } else {
+        setMemory(parseFloat(value));
+      }
+      setValue("0");
+      setOperator("+");
+      return;
+    }
+
+    if (operations === "-") {
+      if (operator !== null) {
+        if (operator === "+") {
+          setMemory(memory + parseFloat(value));
+        } else if (operator === "−") {
+          setMemory(memory - parseFloat(value));
+        } else if (operator === "×") {
+          setMemory(memory * parseFloat(value));
+        } else if (operator === "÷") {
+          setMemory(memory / parseFloat(value));
+        }
+      } else {
+        setMemory(parseFloat(value));
+      }
+      setValue("0");
+      setOperator("-");
+      return;
+    }
+
+    if (operations === "×") {
+      if (operator !== null) {
+        if (operator === "+") {
+          setMemory(memory + parseFloat(value));
+        } else if (operator === "−") {
+          setMemory(memory - parseFloat(value));
+        } else if (operator === "×") {
+          setMemory(memory * parseFloat(value));
+        } else if (operator === "÷") {
+          setMemory(memory / parseFloat(value));
+        }
+      } else {
+        setMemory(parseFloat(value));
+      }
+      setValue("0");
+      setOperator("×");
+      return;
+    }
+
+    if (operations === "÷") {
+      if (operator !== null) {
+        if (operator === "+") {
+          setMemory(memory + parseFloat(value));
+        } else if (operator === "−") {
+          setMemory(memory - parseFloat(value));
+        } else if (operator === "×") {
+          setMemory(memory * parseFloat(value));
+        } else if (operator === "÷") {
+          setMemory(memory / parseFloat(value));
+        }
+      } else {
+        setMemory(parseFloat(value));
+      }
+      setValue("0");
+      setOperator("÷");
+      return;
+    }
+
+    if (operations === "=") {
+      if (!operator) return;
+
+      if (operator === "+") {
+        setValue((memory + parseFloat(value)).toString());
+      } else if (operator === "−") {
+        setValue((memory - parseFloat(value)).toString());
+      } else if (operator === "×") {
+        setValue((memory * parseFloat(value)).toString());
+      } else if (operator === "÷") {
+        setValue((memory / parseFloat(value)).toString());
+      }
+      setMemory(null);
+      setOperator(null);
+      return;
+    }
+
+    if (value[value.length - 1] === ".") {
+      setValue(value + operations);
+    } else {
+      setValue(parseFloat(number + operations).toString());
+    }
   };
 
-  return <div></div>;
+  return (
+    <div className="App">
+      <div className="Top">6:10</div>
+      <div className="Display">0</div>
+      <div className="Buttons">AC</div>
+      <div className="Bottom">-</div>
+    </div>
+  );
 };
 
 export default App;
