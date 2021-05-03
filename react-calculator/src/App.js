@@ -1,25 +1,67 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import "./App.css";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+  const [time, setTime] = useState(new Date());
+  const [value, setValue] = useState("0");
+  const [memory, setMemory] = useState(null);
+  const [operator, setOperator] = useState(null);
+
+  useEffect(() => {
+    setTime(new Date());
+  }, [new Date().getMinutes()]);
+
+  const handleButtonPress = (operations) => () => {
+    const number = parseFloat(value);
+
+    if (operations === "AC") {
+      setValue("0");
+      setMemory(null);
+      setOperator(null);
+      return;
+    }
+
+    if (operations === "sin") {
+      setValue(Math.sin(number).toString());
+      return;
+    }
+
+    if (operations === "cos") {
+      setValue(Math.cos(number).toString());
+      return;
+    }
+
+    if (operations === "tan") {
+      setValue(Math.tan(number).toString());
+      return;
+    }
+
+    if (operations === "^2") {
+      setValue((number * number).toString());
+      return;
+    }
+
+    if (operations === "±") {
+      setValue((number * -1).toString());
+      return;
+    }
+
+    if (operations === "%") {
+      setValue((number / 100).toString());
+      setMemory(null);
+      setOperator(null);
+      return;
+    }
+
+    if (operations === ".") {
+      if (value.includes(".")) return;
+
+      setValue(value + ".");
+      return;
+    }
+  };
+
+  return <div></div>;
+};
 
 export default App;
