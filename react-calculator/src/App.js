@@ -17,7 +17,7 @@ const App = () => {
     if (operator !== null) {
       if (operator === "+") {
         setMemory(memory + parseFloat(value));
-      } else if (operator === "−") {
+      } else if (operator === "-") {
         setMemory(memory - parseFloat(value));
       } else if (operator === "×") {
         setMemory(memory * parseFloat(value));
@@ -120,7 +120,7 @@ const App = () => {
 
       if (operator === "+") {
         setValue((memory + parseFloat(value)).toString());
-      } else if (operator === "−") {
+      } else if (operator === "-") {
         setValue((memory - parseFloat(value)).toString());
       } else if (operator === "×") {
         setValue((memory * parseFloat(value)).toString());
