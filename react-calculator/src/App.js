@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import Buttons from "./Components/Buttons";
+
 import "./App.css";
 
 const App = () => {
@@ -10,6 +12,24 @@ const App = () => {
   useEffect(() => {
     setTime(new Date());
   }, [new Date().getMinutes()]);
+
+  const mathOperations = () => {
+    if (operator !== null) {
+      if (operator === "+") {
+        setMemory(memory + parseFloat(value));
+      } else if (operator === "−") {
+        setMemory(memory - parseFloat(value));
+      } else if (operator === "×") {
+        setMemory(memory * parseFloat(value));
+      } else if (operator === "÷") {
+        setMemory(memory / parseFloat(value));
+      } else if (operator === "^") {
+        setMemory(Math.pow(memory, parseFloat(value)));
+      }
+    } else {
+      setMemory(parseFloat(value));
+    }
+  };
 
   const handleButtonPress = (operations) => () => {
     const number = parseFloat(value);
@@ -36,8 +56,15 @@ const App = () => {
       return;
     }
 
-    if (operations === "^2") {
-      setValue((number * number).toString());
+    if (operations === "√") {
+      setValue(Math.sqrt(number).toString());
+      return;
+    }
+
+    if (operations === "^") {
+      mathOperations();
+      setValue("0");
+      setOperator("^");
       return;
     }
 
@@ -61,76 +88,28 @@ const App = () => {
     }
 
     if (operations === "+") {
-      if (operator !== null) {
-        if (operator === "+") {
-          setMemory(memory + parseFloat(value));
-        } else if (operator === "-") {
-          setMemory(memory - parseFloat(value));
-        } else if (operator === "×") {
-          setMemory(memory * parseFloat(value));
-        } else if (operator === "÷") {
-          setMemory(memory / parseFloat(value));
-        }
-      } else {
-        setMemory(parseFloat(value));
-      }
+      mathOperations();
       setValue("0");
       setOperator("+");
       return;
     }
 
     if (operations === "-") {
-      if (operator !== null) {
-        if (operator === "+") {
-          setMemory(memory + parseFloat(value));
-        } else if (operator === "−") {
-          setMemory(memory - parseFloat(value));
-        } else if (operator === "×") {
-          setMemory(memory * parseFloat(value));
-        } else if (operator === "÷") {
-          setMemory(memory / parseFloat(value));
-        }
-      } else {
-        setMemory(parseFloat(value));
-      }
+      mathOperations();
       setValue("0");
       setOperator("-");
       return;
     }
 
     if (operations === "×") {
-      if (operator !== null) {
-        if (operator === "+") {
-          setMemory(memory + parseFloat(value));
-        } else if (operator === "−") {
-          setMemory(memory - parseFloat(value));
-        } else if (operator === "×") {
-          setMemory(memory * parseFloat(value));
-        } else if (operator === "÷") {
-          setMemory(memory / parseFloat(value));
-        }
-      } else {
-        setMemory(parseFloat(value));
-      }
+      mathOperations();
       setValue("0");
       setOperator("×");
       return;
     }
 
     if (operations === "÷") {
-      if (operator !== null) {
-        if (operator === "+") {
-          setMemory(memory + parseFloat(value));
-        } else if (operator === "−") {
-          setMemory(memory - parseFloat(value));
-        } else if (operator === "×") {
-          setMemory(memory * parseFloat(value));
-        } else if (operator === "÷") {
-          setMemory(memory / parseFloat(value));
-        }
-      } else {
-        setMemory(parseFloat(value));
-      }
+      mathOperations();
       setValue("0");
       setOperator("÷");
       return;
@@ -147,6 +126,8 @@ const App = () => {
         setValue((memory * parseFloat(value)).toString());
       } else if (operator === "÷") {
         setValue((memory / parseFloat(value)).toString());
+      } else if (operator === "^") {
+        setValue(Math.pow(memory, parseFloat(value)).toString());
       }
       setMemory(null);
       setOperator(null);
@@ -162,9 +143,130 @@ const App = () => {
 
   return (
     <div className="App">
-      <div className="Top">6:10</div>
-      <div className="Display">0</div>
-      <div className="Buttons">AC</div>
+      <div className="Top">16:10</div>
+      <div className="Display">{value}</div>
+      <div className="Buttons">
+        <Buttons
+          onButtonClick={handleButtonPress}
+          operations="AC"
+          type="function"
+        />
+        <Buttons
+          onButtonClick={handleButtonPress}
+          operations="sin"
+          type="function"
+        />
+        <Buttons
+          onButtonClick={handleButtonPress}
+          operations="cos"
+          type="function"
+        />
+        <Buttons
+          onButtonClick={handleButtonPress}
+          operations="tan"
+          type="function"
+        />
+        <Buttons
+          onButtonClick={handleButtonPress}
+          operations="±"
+          type="function"
+        />
+        <Buttons
+          onButtonClick={handleButtonPress}
+          operations="%"
+          type="function"
+        />
+        <Buttons
+          onButtonClick={handleButtonPress}
+          operations="^"
+          type="function"
+        />
+        <Buttons
+          onButtonClick={handleButtonPress}
+          operations="√"
+          type="function"
+        />
+        <Buttons
+          onButtonClick={handleButtonPress}
+          operations="7"
+          type="number"
+        />
+        <Buttons
+          onButtonClick={handleButtonPress}
+          operations="8"
+          type="number"
+        />
+        <Buttons
+          onButtonClick={handleButtonPress}
+          operations="9"
+          type="number"
+        />
+        <Buttons
+          onButtonClick={handleButtonPress}
+          operations="÷"
+          type="operator"
+        />
+        <Buttons
+          onButtonClick={handleButtonPress}
+          operations="4"
+          type="number"
+        />
+        <Buttons
+          onButtonClick={handleButtonPress}
+          operations="5"
+          type="number"
+        />
+        <Buttons
+          onButtonClick={handleButtonPress}
+          operations="6"
+          type="number"
+        />
+        <Buttons
+          onButtonClick={handleButtonPress}
+          operations="×"
+          type="operator"
+        />
+        <Buttons
+          onButtonClick={handleButtonPress}
+          operations="1"
+          type="number"
+        />
+        <Buttons
+          onButtonClick={handleButtonPress}
+          operations="2"
+          type="number"
+        />
+        <Buttons
+          onButtonClick={handleButtonPress}
+          operations="3"
+          type="number"
+        />
+        <Buttons
+          onButtonClick={handleButtonPress}
+          operations="-"
+          type="operator"
+        />
+        <Buttons
+          onButtonClick={handleButtonPress}
+          operations="."
+          type="operator"
+        />
+        <Buttons
+          onButtonClick={handleButtonPress}
+          operations="0"
+          type="number"
+        />
+        <Buttons
+          onButtonClick={handleButtonPress}
+          operations="="
+          type="operator"
+        />
+        <Buttons
+          onButtonClick={handleButtonPress}
+          operations="+"
+          type="operator"
+        />
+      </div>
       <div className="Bottom">-</div>
     </div>
   );
