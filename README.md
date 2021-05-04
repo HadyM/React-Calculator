@@ -6,7 +6,7 @@ The Calculator app is a modern React app written utilizing React and JavaScript.
 
 ## Preview of Calculator:
 <img src="https://github.com/HadyM/React-Calculator/blob/main/react-calculator/src/Assets/Calculator.png" width="400" height="600">
-
+<img src="https://github.com/HadyM/React-Calculator/blob/main/react-calculator/src/Assets/CalculatorTwo.png" width="400" height="600">
 
 
 ## Features:
