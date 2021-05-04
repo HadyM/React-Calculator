@@ -5,7 +5,7 @@ The Calculator app is a modern React app written utilizing React and JavaScript.
 
 
 ## Preview of Calculator:
-![React Calculator]()
+<img src="https://github.com/HadyM/React-Calculator/blob/main/react-calculator/src/Assets/Calculator.png" width="400" height="600">
 
 
 
@@ -14,3 +14,4 @@ The Calculator app is a modern React app written utilizing React and JavaScript.
 * Standard Calculator functionality which offers basic operations and evaluates commands immediately as they are entered.
 * Scientific Calculator functionality which offers expanded operations and evaluates commands using order of operations.
 * Infinite precision for basic arithmetic operations (addition, subtraction, multiplication, division) so that calculations are always accurate and precise.
+* Includes a functional clock in 12 hour format.
