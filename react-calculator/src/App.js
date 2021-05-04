@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Buttons from "./Components/Buttons";
-
+import devhady from "./Assets/devhady.png";
 import "./App.css";
 
 const App = () => {
@@ -143,7 +143,15 @@ const App = () => {
 
   return (
     <div className="App">
-      <div className="Top">16:10</div>
+      <div className="Top">
+        <div className="Time">
+          {(time.getHours() % 12 || 12).toString().padStart(2, "0")}:
+          {time.getMinutes().toString().padStart(2, "0")}
+        </div>
+        <div className="Menu">
+          <img src={devhady} alt="logo" height="20px" />
+        </div>
+      </div>
       <div className="Display">{value}</div>
       <div className="Buttons">
         <Buttons
@@ -267,7 +275,7 @@ const App = () => {
           type="operator"
         />
       </div>
-      <div className="Bottom">-</div>
+      <div className="Bottom"></div>
     </div>
   );
 };
