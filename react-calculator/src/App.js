@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Buttons from "./Components/Buttons";
 import devhady from "./Assets/devhady.png";
+import Comma from "./Components/Comma";
 import "./App.css";
 
 const App = () => {
@@ -152,7 +153,7 @@ const App = () => {
           <img src={devhady} alt="logo" height="20px" />
         </div>
       </div>
-      <div className="Display">{value}</div>
+      <div className="Display">{Comma(value)}</div>
       <div className="Buttons">
         <Buttons
           onButtonClick={handleButtonPress}
