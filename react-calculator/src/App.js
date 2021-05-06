@@ -133,6 +133,27 @@ const App = () => {
       setMemory(null);
       setOperator(null);
       return;
+
+      // If you want the calculator to round the result
+      // Comment out line 119-135 and comment in line 140-156
+
+      // if (operations === "=") {
+      //   if (!operator) return;
+
+      //   if (operator === "+") {
+      //     setValue(Math.round(memory + parseFloat(value)).toString());
+      //   } else if (operator === "-") {
+      //     setValue(Math.round(memory - parseFloat(value)).toString());
+      //   } else if (operator === "×") {
+      //     setValue(Math.round(memory * parseFloat(value)).toString());
+      //   } else if (operator === "÷") {
+      //     setValue(Math.round(memory / parseFloat(value)).toString());
+      //   } else if (operator === "^") {
+      //     setValue(Math.pow(memory, parseFloat(value)).toString());
+      //   }
+      //   setMemory(null);
+      //   setOperator(null);
+      //   return;
     }
 
     if (value[value.length - 1] === ".") {
