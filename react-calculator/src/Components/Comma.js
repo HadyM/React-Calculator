@@ -1,3 +1,4 @@
+// Since this isn't a react component or a constructor function, its name should be lower case
 const Comma = (value) => {
   let output = "";
   let decimal = "";
