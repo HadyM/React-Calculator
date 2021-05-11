@@ -20,6 +20,7 @@ const App = () => {
 
   const mathOperations = () => {
     if (operator !== null) {
+      // This is a good use case for a switch/case statement 
       if (operator === "+") {
         setMemory(memory + parseFloat(value));
       } else if (operator === "-") {
