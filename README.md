@@ -15,3 +15,8 @@ The Calculator app is a modern React app written utilizing React and JavaScript.
 * Scientific Calculator functionality which offers expanded operations and evaluates commands using order of operations.
 * Infinite precision for basic arithmetic operations (addition, subtraction, multiplication, division) so that calculations are always accurate and precise.
 * Includes a functional clock in 12 hour format.
+
+## Demo Link:
+
+* [Calculator Link](https://awesomereactcalculator.netlify.app/)
+* The link above is a demo of the finished functioning calculator designed using React, JavaScript, and CSS.
