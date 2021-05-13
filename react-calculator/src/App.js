@@ -10,12 +10,17 @@ const App = () => {
   const [memory, setMemory] = useState(null);
   const [operator, setOperator] = useState(null);
 
+  // There are more appropriate ways to set up a clock.
+  // See https://reactjs.org/docs/state-and-lifecycle.html
+  // This example uses class components, but you can use the 
+  // useEffect hook to set up an inteval similarly.
   useEffect(() => {
     setTime(new Date());
   }, [new Date().getMinutes()]);
 
   const mathOperations = () => {
     if (operator !== null) {
+      // This is a good use case for a switch/case statement 
       if (operator === "+") {
         setMemory(memory + parseFloat(value));
       } else if (operator === "-") {
@@ -32,9 +37,11 @@ const App = () => {
     }
   };
 
+  // I'd recommend renaming this argument since it could be an operation or a number.
   const handleButtonPress = (operations) => () => {
     const number = parseFloat(value);
-
+    // Suggestion: create an object mapping valid operations to a function (const validOps = {"AC": (number) => {...}, "sin": (number) => {...}, ...})
+    // Then write a single if statement: (if (validOps.hasOwnProperty(operations) { validOps[operations](number) } )
     if (operations === "AC") {
       setValue("0");
       setMemory(null);
@@ -134,6 +141,8 @@ const App = () => {
       setOperator(null);
       return;
 
+      // Thanks for including this!
+      
       // If you want the calculator to round the result
       // Comment out line 119-135 and comment in line 140-156
 
@@ -176,6 +185,10 @@ const App = () => {
       </div>
       <div className="Display">{Comma(value)}</div>
       <div className="Buttons">
+        {/* Try to avoid such repetetive code! Suggestion:
+            If you have an array of button info (const buttons = [{name: "AC", type: "function"}, {name: "0", type: "number"}, ...])
+            Then you can use buttons.map() to create all of these Button components and keep your code a bit more DRY.                       
+        */}
         <Buttons
           onButtonClick={handleButtonPress}
           operations="AC"
