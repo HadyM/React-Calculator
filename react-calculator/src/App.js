@@ -3,6 +3,7 @@ import Buttons from "./Components/Buttons";
 import devhady from "./Assets/devhady.png";
 import comma from "./Components/Comma";
 import "./App.css";
+import buttons from "./Components/ButtonList";
 
 const App = () => {
   const [time, setTime] = useState(new Date());
@@ -168,30 +169,15 @@ const App = () => {
       </div>
       <div className="Display">{comma(value)}</div>
       <div className="Buttons">
-        <Buttons onButtonClick={handleButtonPress} name="AC" type="function" />
-        <Buttons onButtonClick={handleButtonPress} name="sin" type="function" />
-        <Buttons onButtonClick={handleButtonPress} name="cos" type="function" />
-        <Buttons onButtonClick={handleButtonPress} name="tan" type="function" />
-        <Buttons onButtonClick={handleButtonPress} name="±" type="function" />
-        <Buttons onButtonClick={handleButtonPress} name="%" type="function" />
-        <Buttons onButtonClick={handleButtonPress} name="^" type="function" />
-        <Buttons onButtonClick={handleButtonPress} name="√" type="function" />
-        <Buttons onButtonClick={handleButtonPress} name="7" type="number" />
-        <Buttons onButtonClick={handleButtonPress} name="8" type="number" />
-        <Buttons onButtonClick={handleButtonPress} name="9" type="number" />
-        <Buttons onButtonClick={handleButtonPress} name="÷" type="operator" />
-        <Buttons onButtonClick={handleButtonPress} name="4" type="number" />
-        <Buttons onButtonClick={handleButtonPress} name="5" type="number" />
-        <Buttons onButtonClick={handleButtonPress} name="6" type="number" />
-        <Buttons onButtonClick={handleButtonPress} name="×" type="operator" />
-        <Buttons onButtonClick={handleButtonPress} name="1" type="number" />
-        <Buttons onButtonClick={handleButtonPress} name="2" type="number" />
-        <Buttons onButtonClick={handleButtonPress} name="3" type="number" />
-        <Buttons onButtonClick={handleButtonPress} name="-" type="operator" />
-        <Buttons onButtonClick={handleButtonPress} name="." type="operator" />
-        <Buttons onButtonClick={handleButtonPress} name="0" type="number" />
-        <Buttons onButtonClick={handleButtonPress} name="=" type="operator" />
-        <Buttons onButtonClick={handleButtonPress} name="+" type="operator" />
+        {buttons.map((button) => (
+          <Buttons
+            onButtonClick={handleButtonPress}
+            name={button.name}
+            type={button.type}
+          >
+            {button.name}
+          </Buttons>
+        ))}
       </div>
       <div className="Bottom"></div>
     </div>

@@ -143,4 +143,75 @@
 // '÷': () => { mathOperations(); setValue("0"); setOperator("÷");}}
 
 
-// if (validOps.hasOwnProperty(operations)) { return validOps[operations](number) }
+// if (validOps.hasOwnProperty(operations)) { return v
+
+
+
+// Suggested that I create an array and then map throught it to keep code DRY
+// Lines 181-204 original code posted for refernce and new code for comparison
+
+//  <Buttons onButtonClick={handleButtonPress} name="AC" type="function" />
+//         <Buttons onButtonClick={handleButtonPress} name="sin" type="function" />
+//         <Buttons onButtonClick={handleButtonPress} name="cos" type="function" />
+//         <Buttons onButtonClick={handleButtonPress} name="tan" type="function" />
+//         <Buttons onButtonClick={handleButtonPress} name="±" type="function" />
+//         <Buttons onButtonClick={handleButtonPress} name="%" type="function" />
+//         <Buttons onButtonClick={handleButtonPress} name="^" type="function" />
+//         <Buttons onButtonClick={handleButtonPress} name="√" type="function" />
+//         <Buttons onButtonClick={handleButtonPress} name="7" type="number" />
+//         <Buttons onButtonClick={handleButtonPress} name="8" type="number" />
+//         <Buttons onButtonClick={handleButtonPress} name="9" type="number" />
+//         <Buttons onButtonClick={handleButtonPress} name="÷" type="operator" />
+//         <Buttons onButtonClick={handleButtonPress} name="4" type="number" />
+//         <Buttons onButtonClick={handleButtonPress} name="5" type="number" />
+//         <Buttons onButtonClick={handleButtonPress} name="6" type="number" />
+//         <Buttons onButtonClick={handleButtonPress} name="×" type="operator" />
+//         <Buttons onButtonClick={handleButtonPress} name="1" type="number" />
+//         <Buttons onButtonClick={handleButtonPress} name="2" type="number" />
+//         <Buttons onButtonClick={handleButtonPress} name="3" type="number" />
+//         <Buttons onButtonClick={handleButtonPress} name="-" type="operator" />
+//         <Buttons onButtonClick={handleButtonPress} name="." type="operator" />
+//         <Buttons onButtonClick={handleButtonPress} name="0" type="number" />
+//         <Buttons onButtonClick={handleButtonPress} name="=" type="operator" />
+//         <Buttons onButtonClick={handleButtonPress} name="+" type="operator" />
+
+    // Above is the original code below is the new code
+
+    // const buttons = [
+    //   { name: "AC", type: "function" },
+    //   { name: "sin", type: "function" },
+    //   { name: "cos", type: "function" },
+    //   { name: "tan", type: "function" },
+    //   { name: "±", type: "function" },
+    //   { name: "%", type: "function" },
+    //   { name: "^", type: "function" },
+    //   { name: "√", type: "function" },
+    //   { name: "7", type: "number" },
+    //   { name: "8", type: "number" },
+    //   { name: "9", type: "number" },
+    //   { name: "÷", type: "operator" },
+    //   { name: "4", type: "number" },
+    //   { name: "5", type: "number" },
+    //   { name: "6", type: "number" },
+    //   { name: "×", type: "operator" },
+    //   { name: "1", type: "number" },
+    //   { name: "2", type: "number" },
+    //   { name: "3", type: "number" },
+    //   { name: "-", type: "operator" },
+    //   { name: ".", type: "operator" },
+    //   { name: "0", type: "number" },
+    //   { name: "=", type: "operator" },
+    //   { name: "+", type: "operator" },
+    // ];
+
+    //   {
+    //     buttons.map((button) => (
+    //       <Buttons
+    //         onButtonClick={handleButtonPress}
+    //         name={button.name}
+    //         type={button.type}
+    //       >
+    //         {button.name}
+    //       </Buttons>
+    //     ));
+    //   }

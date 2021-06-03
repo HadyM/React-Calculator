@@ -1,0 +1,28 @@
+const buttons = [
+  { name: "AC", type: "function" },
+  { name: "sin", type: "function" },
+  { name: "cos", type: "function" },
+  { name: "tan", type: "function" },
+  { name: "±", type: "function" },
+  { name: "%", type: "function" },
+  { name: "^", type: "function" },
+  { name: "√", type: "function" },
+  { name: "7", type: "number" },
+  { name: "8", type: "number" },
+  { name: "9", type: "number" },
+  { name: "÷", type: "operator" },
+  { name: "4", type: "number" },
+  { name: "5", type: "number" },
+  { name: "6", type: "number" },
+  { name: "×", type: "operator" },
+  { name: "1", type: "number" },
+  { name: "2", type: "number" },
+  { name: "3", type: "number" },
+  { name: "-", type: "operator" },
+  { name: ".", type: "operator" },
+  { name: "0", type: "number" },
+  { name: "=", type: "operator" },
+  { name: "+", type: "operator" },
+];
+
+export default buttons;
