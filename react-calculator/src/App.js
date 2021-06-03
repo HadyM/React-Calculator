@@ -17,21 +17,44 @@ const App = () => {
     return () => clearInterval(interval);
   }, []);
 
+  // const mathOperations = () => {
+  //   if (operator !== null) {
+  //     if (operator === "+") {
+  //       setMemory(memory + parseFloat(value));
+  //     } else if (operator === "-") {
+  //       setMemory(memory - parseFloat(value));
+  //     } else if (operator === "×") {
+  //       setMemory(memory * parseFloat(value));
+  //     } else if (operator === "÷") {
+  //       setMemory(memory / parseFloat(value));
+  //     } else if (operator === "^") {
+  //       setMemory(Math.pow(memory, parseFloat(value)));
+  //     }
+  //   } else {
+  //     setMemory(parseFloat(value));
+  //   }
+  // };
+
   const mathOperations = () => {
-    if (operator !== null) {
-      if (operator === "+") {
+    const operator = !null;
+    switch (operator) {
+      case "+":
         setMemory(memory + parseFloat(value));
-      } else if (operator === "-") {
+        break;
+      case "-":
         setMemory(memory - parseFloat(value));
-      } else if (operator === "×") {
+        break;
+      case "×":
         setMemory(memory * parseFloat(value));
-      } else if (operator === "÷") {
+        break;
+      case "÷":
         setMemory(memory / parseFloat(value));
-      } else if (operator === "^") {
+        break;
+      case "^":
         setMemory(Math.pow(memory, parseFloat(value)));
-      }
-    } else {
-      setMemory(parseFloat(value));
+        break;
+      default:
+        setMemory(parseFloat(value));
     }
   };
 
