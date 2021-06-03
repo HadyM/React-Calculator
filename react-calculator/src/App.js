@@ -11,8 +11,11 @@ const App = () => {
   const [operator, setOperator] = useState(null);
 
   useEffect(() => {
-    setTime(new Date());
-  }, [new Date().getMinutes()]);
+    const interval = setInterval(() => {
+      setTime(new Date());
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);
 
   const mathOperations = () => {
     if (operator !== null) {
@@ -168,7 +171,8 @@ const App = () => {
       <div className="Top">
         <div className="Time">
           {(time.getHours() % 12 || 12).toString().padStart(2, "0")}:
-          {time.getMinutes().toString().padStart(2, "0")}
+          {time.getMinutes().toString().padStart(2, "0")}:
+          {time.getSeconds().toString().padStart(2, "0")}
         </div>
         <div className="Menu">
           <img src={devhady} alt="logo" height="20px" />
