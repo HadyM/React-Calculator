@@ -40,7 +40,7 @@ const App = () => {
     }
   };
 
-  const handleButtonPress = (operations) => () => {
+  const handleButtonPress = (name) => () => {
     const number = parseFloat(value);
 
     const validOps = {
@@ -96,18 +96,18 @@ const App = () => {
       },
     };
 
-    if (validOps.hasOwnProperty(operations)) {
-      return validOps[operations](number);
+    if (validOps.hasOwnProperty(name)) {
+      return validOps[name](number);
     }
 
-    if (operations === ".") {
+    if (name === ".") {
       if (value.includes(".")) return;
 
       setValue(value + ".");
       return;
     }
 
-    if (operations === "=") {
+    if (name === "=") {
       if (!operator) return;
 
       if (operator === "+") {
@@ -148,9 +148,9 @@ const App = () => {
     }
 
     if (value[value.length - 1] === ".") {
-      setValue(value + operations);
+      setValue(value + name);
     } else {
-      setValue(parseFloat(number + operations).toString());
+      setValue(parseFloat(number + name).toString());
     }
   };
 
@@ -168,126 +168,30 @@ const App = () => {
       </div>
       <div className="Display">{comma(value)}</div>
       <div className="Buttons">
-        <Buttons
-          onButtonClick={handleButtonPress}
-          operations="AC"
-          type="function"
-        />
-        <Buttons
-          onButtonClick={handleButtonPress}
-          operations="sin"
-          type="function"
-        />
-        <Buttons
-          onButtonClick={handleButtonPress}
-          operations="cos"
-          type="function"
-        />
-        <Buttons
-          onButtonClick={handleButtonPress}
-          operations="tan"
-          type="function"
-        />
-        <Buttons
-          onButtonClick={handleButtonPress}
-          operations="±"
-          type="function"
-        />
-        <Buttons
-          onButtonClick={handleButtonPress}
-          operations="%"
-          type="function"
-        />
-        <Buttons
-          onButtonClick={handleButtonPress}
-          operations="^"
-          type="function"
-        />
-        <Buttons
-          onButtonClick={handleButtonPress}
-          operations="√"
-          type="function"
-        />
-        <Buttons
-          onButtonClick={handleButtonPress}
-          operations="7"
-          type="number"
-        />
-        <Buttons
-          onButtonClick={handleButtonPress}
-          operations="8"
-          type="number"
-        />
-        <Buttons
-          onButtonClick={handleButtonPress}
-          operations="9"
-          type="number"
-        />
-        <Buttons
-          onButtonClick={handleButtonPress}
-          operations="÷"
-          type="operator"
-        />
-        <Buttons
-          onButtonClick={handleButtonPress}
-          operations="4"
-          type="number"
-        />
-        <Buttons
-          onButtonClick={handleButtonPress}
-          operations="5"
-          type="number"
-        />
-        <Buttons
-          onButtonClick={handleButtonPress}
-          operations="6"
-          type="number"
-        />
-        <Buttons
-          onButtonClick={handleButtonPress}
-          operations="×"
-          type="operator"
-        />
-        <Buttons
-          onButtonClick={handleButtonPress}
-          operations="1"
-          type="number"
-        />
-        <Buttons
-          onButtonClick={handleButtonPress}
-          operations="2"
-          type="number"
-        />
-        <Buttons
-          onButtonClick={handleButtonPress}
-          operations="3"
-          type="number"
-        />
-        <Buttons
-          onButtonClick={handleButtonPress}
-          operations="-"
-          type="operator"
-        />
-        <Buttons
-          onButtonClick={handleButtonPress}
-          operations="."
-          type="operator"
-        />
-        <Buttons
-          onButtonClick={handleButtonPress}
-          operations="0"
-          type="number"
-        />
-        <Buttons
-          onButtonClick={handleButtonPress}
-          operations="="
-          type="operator"
-        />
-        <Buttons
-          onButtonClick={handleButtonPress}
-          operations="+"
-          type="operator"
-        />
+        <Buttons onButtonClick={handleButtonPress} name="AC" type="function" />
+        <Buttons onButtonClick={handleButtonPress} name="sin" type="function" />
+        <Buttons onButtonClick={handleButtonPress} name="cos" type="function" />
+        <Buttons onButtonClick={handleButtonPress} name="tan" type="function" />
+        <Buttons onButtonClick={handleButtonPress} name="±" type="function" />
+        <Buttons onButtonClick={handleButtonPress} name="%" type="function" />
+        <Buttons onButtonClick={handleButtonPress} name="^" type="function" />
+        <Buttons onButtonClick={handleButtonPress} name="√" type="function" />
+        <Buttons onButtonClick={handleButtonPress} name="7" type="number" />
+        <Buttons onButtonClick={handleButtonPress} name="8" type="number" />
+        <Buttons onButtonClick={handleButtonPress} name="9" type="number" />
+        <Buttons onButtonClick={handleButtonPress} name="÷" type="operator" />
+        <Buttons onButtonClick={handleButtonPress} name="4" type="number" />
+        <Buttons onButtonClick={handleButtonPress} name="5" type="number" />
+        <Buttons onButtonClick={handleButtonPress} name="6" type="number" />
+        <Buttons onButtonClick={handleButtonPress} name="×" type="operator" />
+        <Buttons onButtonClick={handleButtonPress} name="1" type="number" />
+        <Buttons onButtonClick={handleButtonPress} name="2" type="number" />
+        <Buttons onButtonClick={handleButtonPress} name="3" type="number" />
+        <Buttons onButtonClick={handleButtonPress} name="-" type="operator" />
+        <Buttons onButtonClick={handleButtonPress} name="." type="operator" />
+        <Buttons onButtonClick={handleButtonPress} name="0" type="number" />
+        <Buttons onButtonClick={handleButtonPress} name="=" type="operator" />
+        <Buttons onButtonClick={handleButtonPress} name="+" type="operator" />
       </div>
       <div className="Bottom"></div>
     </div>
