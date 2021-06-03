@@ -1,0 +1,146 @@
+// Originally lines 20-36 had an if/else statement advised to change to a switch/case statement
+// Original code posted below for reference also the switch/case statement for comparison
+
+// const mathOperations = () => {
+//     if (operator !== null) {
+//       if (operator === "+") {
+//         setMemory(memory + parseFloat(value));
+//       } else if (operator === "-") {
+//         setMemory(memory - parseFloat(value));
+//       } else if (operator === "×") {
+//         setMemory(memory * parseFloat(value));
+//       } else if (operator === "÷") {
+//         setMemory(memory / parseFloat(value));
+//       } else if (operator === "^") {
+//         setMemory(Math.pow(memory, parseFloat(value)));
+//       }
+//     } else {
+//       setMemory(parseFloat(value));
+//     }
+//   };
+
+// Above is the original code below is the new code
+
+//  const mathOperations = () => {
+//    const operator = !null;
+//    switch (operator) {
+//      case "+":
+//        setMemory(memory + parseFloat(value));
+//        break;
+//      case "-":
+//        setMemory(memory - parseFloat(value));
+//        break;
+//      case "×":
+//        setMemory(memory * parseFloat(value));
+//        break;
+//      case "÷":
+//        setMemory(memory / parseFloat(value));
+//        break;
+//      case "^":
+//        setMemory(Math.pow(memory, parseFloat(value)));
+//        break;
+//      default:
+//        setMemory(parseFloat(value));
+//    }
+//  };
+
+
+
+
+
+// Suggested I should create mapping valid operations to a function
+// Then writing a single if statement to call them originally lines 47-119
+// Original code posted below for reference and new code as well for comparison
+
+// if (operations === "AC") {
+    //   setValue("0");
+    //   setMemory(null);
+    //   setOperator(null);
+    //   return;
+    // }
+
+    // if (operations === "sin") {
+    //   setValue(Math.sin(number).toString());
+    //   return;
+    // }
+
+    // if (operations === "cos") {
+    //   setValue(Math.cos(number).toString());
+    //   return;
+    // }
+
+    // if (operations === "tan") {
+    //   setValue(Math.tan(number).toString());
+    //   return;
+    // }
+
+    // if (operations === "√") {
+    //   setValue(Math.sqrt(number).toString());
+    //   return;
+    // }
+
+    // if (operations === "^") {
+    //   mathOperations();
+    //   setValue("0");
+    //   setOperator("^");
+    //   return;
+    // }
+
+    // if (operations === "±") {
+    //   setValue((number * -1).toString());
+    //   return;
+    // }
+
+    // if (operations === "%") {
+    //   setValue((number / 100).toString());
+    //   setMemory(null);
+    //   setOperator(null);
+    //   return;
+    // }
+
+    // if (operations === "+") {
+    //   mathOperations();
+    //   setValue("0");
+    //   setOperator("+");
+    //   return;
+    // }
+
+    // if (operations === "-") {
+    //   mathOperations();
+    //   setValue("0");
+    //   setOperator("-");
+    //   return;
+    // }
+
+    // if (operations === "×") {
+    //   mathOperations();
+    //   setValue("0");
+    //   setOperator("×");
+    //   return;
+    // }
+
+    // if (operations === "÷") {
+    //   mathOperations();
+    //   setValue("0");
+    //   setOperator("÷");
+    //   return;
+    // }
+
+    // Above is the original code below is the new code
+
+// const validOps = 
+// {"AC": () => { setValue("0"); setMemory(null); setOperator(null); },
+// "sin": (number) => {setValue(Math.sin(number).toString())},
+// 'cos': (number) => {setValue(Math.cos(number).toString())},
+// 'tan': (number) => {setValue(Math.tan(number).toString())},
+// '√': (number) => {setValue(Math.sqrt(number).toString())},
+// '^': () => {mathOperations(); setValue("0"); setOperator("^");},
+// '±': (number) => {setValue((number * -1).toString())},
+// '%': (number) => {setValue((number / 100).toString()); setMemory(null); setOperator(null);},
+// '+': () => {mathOperations(); setValue("0"); setOperator("+");},
+// '-': () => {mathOperations(); setValue("0"); setOperator("-");},
+// '×': () => {mathOperations(); setValue("0"); setOperator("×");},
+// '÷': () => { mathOperations(); setValue("0"); setOperator("÷");}}
+
+
+// if (validOps.hasOwnProperty(operations)) { return validOps[operations](number) }

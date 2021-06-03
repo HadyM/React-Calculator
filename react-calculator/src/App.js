@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Buttons from "./Components/Buttons";
 import devhady from "./Assets/devhady.png";
-import Comma from "./Components/Comma";
+import comma from "./Components/Comma";
 import "./App.css";
 
 const App = () => {
@@ -16,24 +16,6 @@ const App = () => {
     }, 1000);
     return () => clearInterval(interval);
   }, []);
-
-  // const mathOperations = () => {
-  //   if (operator !== null) {
-  //     if (operator === "+") {
-  //       setMemory(memory + parseFloat(value));
-  //     } else if (operator === "-") {
-  //       setMemory(memory - parseFloat(value));
-  //     } else if (operator === "×") {
-  //       setMemory(memory * parseFloat(value));
-  //     } else if (operator === "÷") {
-  //       setMemory(memory / parseFloat(value));
-  //     } else if (operator === "^") {
-  //       setMemory(Math.pow(memory, parseFloat(value)));
-  //     }
-  //   } else {
-  //     setMemory(parseFloat(value));
-  //   }
-  // };
 
   const mathOperations = () => {
     const operator = !null;
@@ -61,84 +43,67 @@ const App = () => {
   const handleButtonPress = (operations) => () => {
     const number = parseFloat(value);
 
-    if (operations === "AC") {
-      setValue("0");
-      setMemory(null);
-      setOperator(null);
-      return;
-    }
+    const validOps = {
+      AC: () => {
+        setValue("0");
+        setMemory(null);
+        setOperator(null);
+      },
+      sin: (number) => {
+        setValue(Math.sin(number).toString());
+      },
+      cos: (number) => {
+        setValue(Math.cos(number).toString());
+      },
+      tan: (number) => {
+        setValue(Math.tan(number).toString());
+      },
+      "√": (number) => {
+        setValue(Math.sqrt(number).toString());
+      },
+      "^": () => {
+        mathOperations();
+        setValue("0");
+        setOperator("^");
+      },
+      "±": (number) => {
+        setValue((number * -1).toString());
+      },
+      "%": (number) => {
+        setValue((number / 100).toString());
+        setMemory(null);
+        setOperator(null);
+      },
+      "+": () => {
+        mathOperations();
+        setValue("0");
+        setOperator("+");
+      },
+      "-": () => {
+        mathOperations();
+        setValue("0");
+        setOperator("-");
+      },
+      "×": () => {
+        mathOperations();
+        setValue("0");
+        setOperator("×");
+      },
+      "÷": () => {
+        mathOperations();
+        setValue("0");
+        setOperator("÷");
+      },
+    };
 
-    if (operations === "sin") {
-      setValue(Math.sin(number).toString());
-      return;
-    }
-
-    if (operations === "cos") {
-      setValue(Math.cos(number).toString());
-      return;
-    }
-
-    if (operations === "tan") {
-      setValue(Math.tan(number).toString());
-      return;
-    }
-
-    if (operations === "√") {
-      setValue(Math.sqrt(number).toString());
-      return;
-    }
-
-    if (operations === "^") {
-      mathOperations();
-      setValue("0");
-      setOperator("^");
-      return;
-    }
-
-    if (operations === "±") {
-      setValue((number * -1).toString());
-      return;
-    }
-
-    if (operations === "%") {
-      setValue((number / 100).toString());
-      setMemory(null);
-      setOperator(null);
-      return;
+    if (validOps.hasOwnProperty(operations)) {
+      return validOps[operations](number);
     }
 
     if (operations === ".") {
       if (value.includes(".")) return;
 
       setValue(value + ".");
-      return;
-    }
-
-    if (operations === "+") {
-      mathOperations();
-      setValue("0");
-      setOperator("+");
-      return;
-    }
-
-    if (operations === "-") {
-      mathOperations();
-      setValue("0");
-      setOperator("-");
-      return;
-    }
-
-    if (operations === "×") {
-      mathOperations();
-      setValue("0");
-      setOperator("×");
-      return;
-    }
-
-    if (operations === "÷") {
-      mathOperations();
-      setValue("0");
-      setOperator("÷");
       return;
     }
 
@@ -201,7 +166,7 @@ const App = () => {
           <img src={devhady} alt="logo" height="20px" />
         </div>
       </div>
-      <div className="Display">{Comma(value)}</div>
+      <div className="Display">{comma(value)}</div>
       <div className="Buttons">
         <Buttons
           onButtonClick={handleButtonPress}

@@ -1,4 +1,4 @@
-const Comma = (value) => {
+const comma = (value) => {
   let output = "";
   let decimal = "";
   let negative = false;
@@ -13,7 +13,9 @@ const Comma = (value) => {
     output = output.substring(1);
   }
 
-  return negative ? "-" + parseFloat(output).toLocaleString() + decimal : parseFloat(output).toLocaleString() + decimal
+  return negative
+    ? "-" + parseFloat(output).toLocaleString() + decimal
+    : parseFloat(output).toLocaleString() + decimal;
 };
 
-export default Comma;
+export default comma;
