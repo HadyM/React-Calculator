@@ -1,3 +1,20 @@
+// Originally lines 14-19 had used useEffect incorrectly
+// Original code posted below for reference also new code for comparison
+
+// useEffect(() => {
+//   setTime(new Date());
+// }, [new Date().getMinutes()]);
+
+// Above is the original code below is the new code
+
+// useEffect(() => {
+//   const interval = setInterval(() => {
+//     setTime(new Date());
+//   }, 1000);
+//   return () => clearInterval(interval);
+// }, []);
+
+
 // Originally lines 20-36 had an if/else statement advised to change to a switch/case statement
 // Original code posted below for reference also the switch/case statement for comparison
 
