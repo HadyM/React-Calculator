@@ -14,7 +14,6 @@
 //   return () => clearInterval(interval);
 // }, []);
 
-
 // Originally lines 20-36 had an if/else statement advised to change to a switch/case statement
 // Original code posted below for reference also the switch/case statement for comparison
 
@@ -61,91 +60,87 @@
 //    }
 //  };
 
-
-
-
-
 // Suggested I should create mapping valid operations to a function
 // Then writing a single if statement to call them originally lines 47-119
 // Original code posted below for reference and new code as well for comparison
 
 // if (operations === "AC") {
-    //   setValue("0");
-    //   setMemory(null);
-    //   setOperator(null);
-    //   return;
-    // }
+//   setValue("0");
+//   setMemory(null);
+//   setOperator(null);
+//   return;
+// }
 
-    // if (operations === "sin") {
-    //   setValue(Math.sin(number).toString());
-    //   return;
-    // }
+// if (operations === "sin") {
+//   setValue(Math.sin(number).toString());
+//   return;
+// }
 
-    // if (operations === "cos") {
-    //   setValue(Math.cos(number).toString());
-    //   return;
-    // }
+// if (operations === "cos") {
+//   setValue(Math.cos(number).toString());
+//   return;
+// }
 
-    // if (operations === "tan") {
-    //   setValue(Math.tan(number).toString());
-    //   return;
-    // }
+// if (operations === "tan") {
+//   setValue(Math.tan(number).toString());
+//   return;
+// }
 
-    // if (operations === "√") {
-    //   setValue(Math.sqrt(number).toString());
-    //   return;
-    // }
+// if (operations === "√") {
+//   setValue(Math.sqrt(number).toString());
+//   return;
+// }
 
-    // if (operations === "^") {
-    //   mathOperations();
-    //   setValue("0");
-    //   setOperator("^");
-    //   return;
-    // }
+// if (operations === "^") {
+//   mathOperations();
+//   setValue("0");
+//   setOperator("^");
+//   return;
+// }
 
-    // if (operations === "±") {
-    //   setValue((number * -1).toString());
-    //   return;
-    // }
+// if (operations === "±") {
+//   setValue((number * -1).toString());
+//   return;
+// }
 
-    // if (operations === "%") {
-    //   setValue((number / 100).toString());
-    //   setMemory(null);
-    //   setOperator(null);
-    //   return;
-    // }
+// if (operations === "%") {
+//   setValue((number / 100).toString());
+//   setMemory(null);
+//   setOperator(null);
+//   return;
+// }
 
-    // if (operations === "+") {
-    //   mathOperations();
-    //   setValue("0");
-    //   setOperator("+");
-    //   return;
-    // }
+// if (operations === "+") {
+//   mathOperations();
+//   setValue("0");
+//   setOperator("+");
+//   return;
+// }
 
-    // if (operations === "-") {
-    //   mathOperations();
-    //   setValue("0");
-    //   setOperator("-");
-    //   return;
-    // }
+// if (operations === "-") {
+//   mathOperations();
+//   setValue("0");
+//   setOperator("-");
+//   return;
+// }
 
-    // if (operations === "×") {
-    //   mathOperations();
-    //   setValue("0");
-    //   setOperator("×");
-    //   return;
-    // }
+// if (operations === "×") {
+//   mathOperations();
+//   setValue("0");
+//   setOperator("×");
+//   return;
+// }
 
-    // if (operations === "÷") {
-    //   mathOperations();
-    //   setValue("0");
-    //   setOperator("÷");
-    //   return;
-    // }
+// if (operations === "÷") {
+//   mathOperations();
+//   setValue("0");
+//   setOperator("÷");
+//   return;
+// }
 
-    // Above is the original code below is the new code
+// Above is the original code below is the new code
 
-// const validOps = 
+// const validOps =
 // {"AC": () => { setValue("0"); setMemory(null); setOperator(null); },
 // "sin": (number) => {setValue(Math.sin(number).toString())},
 // 'cos': (number) => {setValue(Math.cos(number).toString())},
@@ -159,10 +154,7 @@
 // '×': () => {mathOperations(); setValue("0"); setOperator("×");},
 // '÷': () => { mathOperations(); setValue("0"); setOperator("÷");}}
 
-
 // if (validOps.hasOwnProperty(operations)) { return v
-
-
 
 // Suggested that I create an array and then map throught it to keep code DRY
 // Lines 181-204 original code posted for refernce and new code for comparison
@@ -192,43 +184,43 @@
 //         <Buttons onButtonClick={handleButtonPress} name="=" type="operator" />
 //         <Buttons onButtonClick={handleButtonPress} name="+" type="operator" />
 
-    // Above is the original code below is the new code
+// Above is the original code below is the new code
 
-    // const buttons = [
-    //   { name: "AC", type: "function" },
-    //   { name: "sin", type: "function" },
-    //   { name: "cos", type: "function" },
-    //   { name: "tan", type: "function" },
-    //   { name: "±", type: "function" },
-    //   { name: "%", type: "function" },
-    //   { name: "^", type: "function" },
-    //   { name: "√", type: "function" },
-    //   { name: "7", type: "number" },
-    //   { name: "8", type: "number" },
-    //   { name: "9", type: "number" },
-    //   { name: "÷", type: "operator" },
-    //   { name: "4", type: "number" },
-    //   { name: "5", type: "number" },
-    //   { name: "6", type: "number" },
-    //   { name: "×", type: "operator" },
-    //   { name: "1", type: "number" },
-    //   { name: "2", type: "number" },
-    //   { name: "3", type: "number" },
-    //   { name: "-", type: "operator" },
-    //   { name: ".", type: "operator" },
-    //   { name: "0", type: "number" },
-    //   { name: "=", type: "operator" },
-    //   { name: "+", type: "operator" },
-    // ];
+// const buttons = [
+//   { name: "AC", type: "function" },
+//   { name: "sin", type: "function" },
+//   { name: "cos", type: "function" },
+//   { name: "tan", type: "function" },
+//   { name: "±", type: "function" },
+//   { name: "%", type: "function" },
+//   { name: "^", type: "function" },
+//   { name: "√", type: "function" },
+//   { name: "7", type: "number" },
+//   { name: "8", type: "number" },
+//   { name: "9", type: "number" },
+//   { name: "÷", type: "operator" },
+//   { name: "4", type: "number" },
+//   { name: "5", type: "number" },
+//   { name: "6", type: "number" },
+//   { name: "×", type: "operator" },
+//   { name: "1", type: "number" },
+//   { name: "2", type: "number" },
+//   { name: "3", type: "number" },
+//   { name: "-", type: "operator" },
+//   { name: ".", type: "operator" },
+//   { name: "0", type: "number" },
+//   { name: "=", type: "operator" },
+//   { name: "+", type: "operator" },
+// ];
 
-    //   {
-    //     buttons.map((button) => (
-    //       <Buttons
-    //         onButtonClick={handleButtonPress}
-    //         name={button.name}
-    //         type={button.type}
-    //       >
-    //         {button.name}
-    //       </Buttons>
-    //     ));
-    //   }
+//   {
+//     buttons.map((button) => (
+//       <Buttons
+//         onButtonClick={handleButtonPress}
+//         name={button.name}
+//         type={button.type}
+//       >
+//         {button.name}
+//       </Buttons>
+//     ));
+//   }
