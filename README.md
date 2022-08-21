@@ -1,7 +1,7 @@
 # React Calculator
 
-The Calculator app is a modern React app written utilizing React and JavaScript. The app provides standard and scientific, calculator functionality, as well as a set of converters between various units of measurement.
-
+The Calculator app is a modern React app written utilizing React and JavaScript. This app provides standard and scientific, calculator functionality, as well as a set of converters between various units of measurement.
+It also shows the time in the top left corner and the design look was based off an iPhone calculator. 
 
 
 ## Preview of Calculator:
